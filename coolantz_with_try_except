@@ -1,0 +1,29 @@
+def collantz(number):
+    if number == 1:
+        return number
+    elif number % 2 == 0:
+        number = number // 2
+        result_list.append(number)
+        return collantz(number)
+    else:
+        number = 3 * number + 1
+        result_list.append(number)
+        return collantz(number)
+
+print('Enter a number: ')         # Program starts here!
+try:
+    number = int(input())
+    if not type(number) is int:
+        raise ValueError("Error-1: Given number not integer, Please give a integer number, which is greater than 1")
+    elif number <= 1:
+        raise ValueError("Error-2: Given number less than 2, Please give a integer number, which is greater than 1")
+    else:
+        result_list =[number]
+        collantz(number)
+        print("Solution set: " + str(result_list))
+        print("")
+        print("Maximum Value: " + str(max(result_list)))
+        print("Number of Iteration: " + str(len(result_list)-1))
+        print("Index of MaxValue: " + str(result_list.index(max(result_list))-1))
+except ValueError as e:
+    print(str(e))
