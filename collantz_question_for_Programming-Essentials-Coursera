@@ -1,0 +1,25 @@
+n= 1071
+result_list =[n]
+sentence = "f(f(f(f(f(f(f(f(f(f(f(f(f(f"
+index_num = sentence.lower().count('f')
+
+def collantz(number):
+    if number == 1:
+        return number
+    elif number % 2 == 0:
+        number = number // 2
+        result_list.append(number)
+        return collantz(number)
+    else:
+        number = 3 * number + 1
+        result_list.append(number)
+        return collantz(number)
+    
+collantz(n)
+
+print("Solution set: " + str(result_list))
+print("")
+print("Maximum Value: " + str(max(result_list)))
+print("Number of Iteration: " + str(len(result_list)-1))
+print("Index of MaxValue: " + str(result_list.index(max(result_list))-1))
+print("Searched Iteration Result:" + str(result_list[index_num]))
