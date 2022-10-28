@@ -1,0 +1,16 @@
+import datetime
+time_str = input("enter time in this format yyyy-mm-dd")
+given_date=datetime.datetime.strptime(time_str, "%Y-%m-%d") 
+today_date = datetime.date.today()
+given_date = datetime.date(given_date.year, given_date.month, given_date.day)
+
+def find_diierence_in_month(date):
+    end_date = today_date
+    if today_date > given_date:
+        result = (today_date.year *12 + today_date.month) - (given_date.year *12 + given_date.month)
+        return result
+    else:
+        result = (given_date.year *12 + given_date.date.month) - (today_date.year *12 + today_date.month)
+        return result
+
+print("Month difference between today and given date is: " + str(find_diierence_in_month(given_date)))
