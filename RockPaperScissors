@@ -1,0 +1,61 @@
+import random
+
+"""
+Implementing RPSLS for Practice Project
+"""
+
+def play_game(player1_choice, player2_choice):
+    if player1_choice == 0 and player2_choice in [3,4]:
+        return print("Player 1 win", "Player 2 loss")
+    elif player1_choice == 0 and player2_choice in [1,2]:
+        return print("Player 1 loss", "Player 2 win")
+    elif player1_choice == 1 and player2_choice in [0,4]:
+        return print("Player 1 win", "Player 2 loss")
+    elif player1_choice == 1 and player2_choice in [2,3]:
+        return print("Player 1 loss", "Player 2 win")
+    elif player1_choice == 2 and player2_choice in [1,0]:
+        return print("Player 1 win", "Player 2 loss")
+    elif player1_choice == 2 and player2_choice in [3,4]:
+        return print("Player 1 loss", "Player 2 win")
+    elif player1_choice == 3 and player2_choice in [2,1]:
+        return print("Player 1 win", "Player 2 loss")
+    elif player1_choice == 3 and player2_choice in [4,0]:
+        return print("Player 1 loss", "Player 2 win")
+    elif player1_choice == 4 and player2_choice in [3,2]:
+        return print("Player 1 win", "Player 2 loss")
+    elif player1_choice == 4 and player2_choice in [1,0]:
+        return print("Player 1 loss", "Player 2 win")
+    else:
+        return print("Draw")
+
+print("Welcome to the Game")
+print("Enter 0 for Rock", end=", ")
+print("1 for Spock", end=", ")
+print("2 for Paper", end=", ")
+print("3 for Lizard", end= ", ")
+print("4 for Scissors")
+print(" ")
+
+print("=== Game Rules ===")
+
+print("Rock wins Lizard and Scissors however loses to Paper and Spock")
+print("Spock wins Scissors and Rock however loses to Paper and Lizard")
+print("Paper wins Rock and Spock however loses to Scissors and Lizard")
+print("Lizard wins Spock and Paper however loses to Rock and Scissors")
+print("Scissors wins Lizard and Paper however loses to Rock and Spock")
+
+print("")
+list = [0,1,2,3,4]
+#game_dictionary ={'Rock':0, 'Spock': 1, 'Paper':2, 'Lizard':3, 'Scissors':4 }
+choice_name =['Rock','Spock','Paper','Lizard','Scissors']
+
+print("=== Game===")
+print("")
+
+player1_choice = int(input("Please enter your choice: "))
+print("Player1's choice is: ", choice_name[player1_choice])
+player2_choice = random.choice(list)
+print("Player2's choice is: ", choice_name[player2_choice])
+
+print("")
+play_game(player1_choice, player2_choice)
