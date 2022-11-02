@@ -1,0 +1,102 @@
+import random
+
+# The key idea of this program is to equate the strings
+# "rock", "paper", "scissors", "lizard", "Spock" to numbers
+# as follows:
+#
+# 0 - rock
+# 1 - Spock
+# 2 - paper
+# 3 - lizard
+# 4 - scissors
+
+# helper functions
+    
+def name_to_number(name):
+    """
+    Given string name, return integer 0, 1, 2, 3, or 4 
+    corresponding to numbering in video
+    """
+  
+    # convert name to number using if/elif/else
+    # don't forget to return the result!
+    
+    if name.lower() == "rock":
+        return 0
+    elif name.lower() == "spock":
+        return 1
+    elif name.lower() == "paper":
+        return 2
+    elif name.lower() == "lizard":
+        return 3
+    else:
+        return 4
+    
+def number_to_name(number):
+    """
+    Given integer number (0, 1, 2, 3, or 4)
+    corresponding name from video
+    """
+    
+    # convert number to a name using if/elif/else
+    # don't forget to return the result!
+    
+    if number == 0:
+        return "Rock"
+    elif number == 1:
+        return "Spock"
+    elif number == 2:
+        return "Paper"
+    elif number == 3:
+        return "Lizard"
+    else:
+        return "Scissors"
+
+
+def rpsls(player_choice):
+    """
+    Given string player_choice, play a game of RPSLS 
+    and print results to console
+    """
+     
+    # print a blank line to separate consecutive games
+    print("")
+    
+    # print out the message for the player's choice
+    print("Player chooses " + player_choice.capitalize())
+
+    # convert the player's choice to player_number using the function name_to_number()
+    name_to_number(player_choice)
+
+    # compute random guess for comp_number using random.randrange()
+    comp_number = random.randrange(0,4,1)
+
+    # convert comp_number to comp_choice using the function number_to_name()
+    number_to_name(comp_number)
+    
+    # print out message for computer's choice
+    print("Computer chooses " + number_to_name(comp_number))
+
+    # compute difference of player_number and comp_number modulo five
+    diff = (name_to_number(player_choice) - comp_number) % 5
+
+    # use if/elif/else to determine winner and print winner message
+    
+    if diff in [1,2]:
+        return print("Player wins!")
+    elif diff in [3,4]:
+        return print("Computer wins!")
+    else:
+        return print("Player and computer tie!")
+     
+    
+print("=== Game Rules ===")
+print("")
+print("Rock wins Lizard and Scissors however loses to Paper and Spock")
+print("Spock wins Scissors and Rock however loses to Paper and Lizard")
+print("Paper wins Rock and Spock however loses to Scissors and Lizard")
+print("Lizard wins Spock and Paper however loses to Rock and Scissors")
+print("Scissors wins Lizard and Paper however loses to Rock and Spock")
+
+player1_choice = input("Please enter your choice: ")
+rpsls(player1_choice)
