@@ -1,0 +1,15 @@
+def tryAppend(child, parent):
+    '''
+    This function add item to existing <parent> list,
+    if list is not exist;
+    Function create <parent> named list and add this list given item <child>
+    '''
+    try:
+        global temp_list
+        temp_list = [child]
+        script = "global " + str(parent) +  '\n' + str(parent) + " = " + str(parent) + " + temp_list" + '\n' + "print('List already exists, only append')"
+        return exec(script)
+    except NameError:
+        print("List does not exist, creating list")
+        string_e_1 = "global " + str(parent) +  '\n' + str(parent) + " = temp_list"
+        return exec(string_e_1)
