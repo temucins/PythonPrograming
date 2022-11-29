@@ -1,0 +1,24 @@
+
+def prime_number(bound):
+    if bound <= 2:
+        return 2
+    else:
+        prime_list=[]
+        select_list=list(range(2,bound+1,1))
+        #print(select_list)
+        while len(select_list) >= 1:
+            prime_list.append(select_list[0])
+            prime = prime_list[-1]
+            #print(prime_list)
+            for i in range(2,bound+1):
+                #print("i:" +str(i))
+                if (i % prime == 0) and i in select_list:
+                    select_list.remove(i)
+                else:
+                    i
+    return prime_list    
+                
+#2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97                 
+#2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97
+
+print(prime_number(3))
